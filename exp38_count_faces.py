@@ -1,0 +1,10 @@
+import cv2
+face = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
+img = cv2.imread("image.jpg")
+img = cv2.resize(img,(800,500))
+gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+faces = face.detectMultiScale(gray,1.3,5)
+print("Number of faces:", len(faces))
+cv2.imshow("Faces", img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
